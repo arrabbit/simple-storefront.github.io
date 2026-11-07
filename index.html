@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
     <title>Simple Storefront</title>
     <link href="css/output.min.css" rel="stylesheet">
+    <script>
+    const userArray = ["Obaseki",25]
+    localStorage.setItem('user', JSON.stringify(userArray));
+    localStorage.getItem('name');
+    JSON.parse(localStorage.getItem('user'));
+    const userData = JSON.parse(localStorage.getItem('user'));
+    console.log(userData);
+    </script>
 </head> 
 
 <body>
