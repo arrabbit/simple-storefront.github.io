@@ -2,8 +2,11 @@
 module.exports = {
   content: ["./index.html", "./js/**/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Inter', 'sans-serif'], //placeholder font -> can choose whatever 
+      },
+    },
   },
   plugins: [],
 }
-
