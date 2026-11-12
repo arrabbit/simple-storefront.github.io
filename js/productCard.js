@@ -1,3 +1,19 @@
+function getProductById(id) {
+  return products.find(product => product.id === id) || null;
+}
+// https://www.w3schools.com/jsref/jsref_oper_spread.asp
+// this was used for the getCategories function
+
+function getCategories() {
+  const allCategories = products.map(product => product.category);
+  
+  // set helps remove duplicates
+  const uniqueCategoriesSet = new Set(allCategories);
+  
+  // standard array using spread operator to convert set back to array
+  return [...uniqueCategoriesSet];
+}
+
 // async function loadProducts(url, storageKey) {
 //   // used https://www.w3schools.com/jsref/prop_win_localstorage.asp for help with this section 
   
