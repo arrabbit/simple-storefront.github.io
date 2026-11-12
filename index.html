@@ -3,11 +3,89 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <title>Simple Storefront</title>
+    <title>haven Storefront</title>
     <link href="css/output.min.css" rel="stylesheet">
+
+    <!-- 
+    COLOR SCHEME REFERENCE
+    -------------------------------------------------------------------------------------------------------------------
+    The colour scheme used in this project is based on the colour palette found on Color Hunt at
+    https://colorhunt.co/palette/bad8b6e1eacdf9f6e68d77ab 
+         dark green:  #283D32
+              green:  #BAD8B6
+        light green:  #E1EACD
+              cream:  #F9F6E6
+             purple:  #8D77AB
+    -->
 </head> 
 
-<body>
+<body class="min-h-screen flex flex-col bg-neutral-50 font-sans">
+    
+    <header class="bg-[#F9F6E6] text-[#283D32]"> <!--cream header background with dark green text-->
+        <nav class="flex flex-wrap items-center justify-between gap-4 px-8 py-5">
+            <!--logo that displays home view when clicked-->
+            <a href="#" data-view="home" class="flex items-center">
+                <!--sets logo font as -- and color dark green-->
+                <span class="text-3xl font-bold font-serif tracking-tight">
+                    haven
+                </span>
+            </a>
+
+            <!--centered nav menu 'home' 'browse' 'categeory' 'about'-->
+            <ul class="flex flex-wrap items-center gap-8 text-[15px] font-medium">
+                <li class="bg-[#E1EACD] rounded px-2 py-1"><a href="#" data-view="home" class="hover:text-[#8D77AB]">Home</a></li> <!--currently hardcoded but will need to make box only active when that view is active-->
+                <li><a href="#" data-view="browse" class="hover:text-[#8D77AB]">Browse</a></li>
+                <li><a href="#" data-view="category" class="hover:text-[#8D77AB]">Category</a></li>
+                <li><a href="#" data-view="about" class="hover:text-[#8D77AB]">About</a></li>
+            </ul>
+
+            <!--cart-->
+            <a href="#" data-view="cart" class="bg-[#E1EACD] rounded border border-[#283D32] px-5 py-2 text-[15px] font-medium">
+                Cart <span id="cart-count">(0)</span> <!--currently hardcoded but will need to update as items are added-->
+            </a>
+        </nav>
+    </header>
+
+    <footer class="bg-[#283D32] px-8 py-8 text-[#F9F6E6]"> <!--dark green footer background with cream text-->
+        <!--container-->
+        <div>
+            <!--footer columns-->
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-3 mb-4">
+                <!--Customer Service column-->
+                <section>
+                    <h2 class="mb-2 font-bold text-sm">Customer Service</h2>
+                    <ul class="space-y-2 text-[12px]">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </section>
+
+                <!--Company column-->
+                <section>
+                    <h2 class="mb-2 font-bold text-sm">Company</h2>
+                    <ul class="space-y-2 text-[12px]">
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </section>
+                
+                <!--Connect column-->
+                <section>
+                    <h2 class="mb-2 font-bold text-sm">Connect</h2>
+                    <ul class="space-y-2 text-[12px]">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                    </ul>
+                </section>     
+            </div>
+
+            <!-- light green copyright and repo link with top line at 30% opacity-->
+            <div class="flex flex-col border-t border-[#E1EACD]/30 pt-2 text-sm text-[#E1EACD]/30">
+                <p>&copy; 2026 COMP3612. All rights reserved.</p>
+                <a href="https://github.com/arrabbit/simple-storefront.github.io" class="underline">Vist our GitHub repository</a>
+            </div>
+        </div>
+    </footer>
 
     <script type="module" src="js/main.js"></script>
 </body>
