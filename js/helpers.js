@@ -25,7 +25,7 @@ function formatDate(isoString) {
     return new Date(isoString).toLocaleDateString("en-CA", {
         year: "numeric",
         month: "long",
-        day: "numberic",
+        day: "numeric",
         timeZone: "UTC",
     });
 }
