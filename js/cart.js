@@ -5,7 +5,7 @@
  * Author: Anna Running Rabbit
 */
 
-import { updateCartCount, showToast } from "./ui.js";
+import { updateCartCount, showToast } from "./helpers.js";
 
 const STORAGE_KEY = "cart";
 
