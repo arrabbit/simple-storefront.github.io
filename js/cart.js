@@ -5,7 +5,7 @@
  * Author: Anna Running Rabbit
 */
 
-import { updateCartCount, showToast } from "./ui.js";
+import { updateCartCount, showToast } from "./helpers.js";
 
 const STORAGE_KEY = "cart";
 
@@ -25,8 +25,8 @@ class Cart {
         this.#onChange(this.getCount());
     }
 
-    get items() {
-        return this.#items; // read-only access
+    getitems() {
+        return [...this.#items]; // returns a copy so the cart can only be changed with the Cart methods
     }
 
     /** Saves the cart and updates the header count. */

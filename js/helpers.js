@@ -8,7 +8,7 @@
  * formatDate() uses concepts from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
 */
 
-/** Creates the string of stars for a given product rating. */
+/** Creates the string of stars for a given product rating (product view).*/
 function createStars(rating) {
     const starRating = Math.round(rating); // takes the given rating value and rounds to the nearest whole number
 
@@ -20,12 +20,12 @@ function createStars(rating) {
     return stars;
 }
 
-/** Formats the date given as an ISO string for review timestamps. */
+/** Formats the date given as an ISO string for review timestamps (product view). */
 function formatDate(isoString) {
     return new Date(isoString).toLocaleDateString("en-CA", {
         year: "numeric",
         month: "long",
-        day: "numberic",
+        day: "numeric",
         timeZone: "UTC",
     });
 }
@@ -35,4 +35,25 @@ function formatPrice(amount) {
     return `$${amount.toFixed(2)}`;
 }
 
-export { createStars, formatDate, formatPrice };
+const TOAST_DELAY = 3000; // 3 seconds
+let toastTimer;
+
+/** Updates the item count in the cart header button. */
+function updateCartCount(count) {
+    document.querySelector("#cart-count").textContent = `(${count})`;
+}
+
+/** Shows a message in the toast element for 3 seconds before disappearing. */
+function showToast(message) {
+    const toast = document.querySelector("#toast");
+    toast.textContent = message;
+    toast.classList.remove("hidden");
+
+    clearTimeout(toastTimer); // timer reset to prevent another toast from getting hidden too early
+
+    toastTimer = setTimeout(() => {
+        toast.classList.add("hidden"); // what happens after the delay timer runs out
+    }, TOAST_DELAY);                   // the delay timer value
+}
+
+export { createStars, formatDate, formatPrice, updateCartCount, showToast };
