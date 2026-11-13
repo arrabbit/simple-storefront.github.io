@@ -41,14 +41,26 @@ Authors: Sage Odesanya and Anna Running Rabbit
 
             <!--centered nav menu 'home' 'browse' 'category' 'about'-->
             <ul class="flex flex-wrap items-center gap-8 text-[15px] font-medium">
-                <li class="bg-[#E1EACD] rounded px-2 py-1"><a href="#" data-view="home" class="hover:text-[#8D77AB]">Home</a></li> <!--currently hardcoded but will need to make box only active when that view is active-->
-                <li><a href="#" data-view="browse" class="hover:text-[#8D77AB]">Browse</a></li>
-                <li><a href="#" data-view="category" class="hover:text-[#8D77AB]">Category</a></li>
-                <li><a href="#" data-view="about" class="hover:text-[#8D77AB]">About</a></li>
+                <li class="bg-[#E1EACD] rounded px-2 py-1">
+                    <!--currently hardcoded but will need to make box only active when that view is active-->
+                    <a href="#" data-view="home" class="hover:text-[#8D77AB]">Home</a>
+                </li>
+                <li>
+                    <a href="#" data-view="browse" class="hover:text-[#8D77AB]">Browse</a>
+                </li>
+                <li>
+                    <a href="#" data-view="category" class="hover:text-[#8D77AB]">Category</a>
+                </li>
+                <li>
+                    <a href="#" data-view="about" class="hover:text-[#8D77AB]">About</a>
+                </li>
             </ul>
 
             <!--cart-->
-            <a href="#" data-view="cart" class="bg-[#E1EACD] rounded border border-[#283D32] px-5 py-2 text-[15px] font-medium">
+            <a href="#" 
+                data-view="cart"
+                class="bg-[#E1EACD] rounded border border-[#283D32] px-5 py-2
+                       text-[15px] font-medium">
                 Cart <span id="cart-count">(0)</span> <!--currently hardcoded but will need to update as items are added-->
             </a>
         </nav>
@@ -58,8 +70,8 @@ Authors: Sage Odesanya and Anna Running Rabbit
         <!-- lots still to do here -->
     </main>
 
-
-    <footer class="bg-[#283D32] px-8 py-8 text-[#F9F6E6]"> <!--dark green footer background with cream text-->
+    <!--dark green footer background with cream text-->
+    <footer class="bg-[#283D32] px-8 py-8 text-[#F9F6E6]">
         <!--container-->
         <div>
             <!--footer columns-->
@@ -93,15 +105,87 @@ Authors: Sage Odesanya and Anna Running Rabbit
             </div>
 
             <!-- light green copyright and repo link with top line at 30% opacity-->
-            <div class="flex flex-col border-t border-[#E1EACD]/30 pt-2 text-sm text-[#E1EACD]/30">
+            <div class="flex flex-col border-t border-[#E1EACD]/30 pt-2 text-sm
+                        text-[#E1EACD]/30">
                 <p>&copy; 2026 COMP3612. All rights reserved.</p>
-                <a href="https://github.com/arrabbit/simple-storefront.github.io" class="underline">Visit our GitHub repository</a>
+                <a href="https://github.com/arrabbit/simple-storefront.github.io" 
+                   class="hover:underline">Visit our GitHub repository
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- About Us popup -->
+    <dialog 
+        id="about-popup" 
+        class="w-full max-w-2xl rounded p-8 bg-[#F9F6E6] text-[#283D32]
+               backdrop:bg-black/50 relative">
+
+        <!-- close popup button (X) that highlights purple when hovering over it -->
+        <button 
+            type="button" 
+            id="close-about-x" 
+            aria-label="Close" 
+            class="absolute right-6 top-6 flex h-8 w-8 items-center 
+                   justify-center rounded border border-neutral-300 bg-white
+                   text-lg font-bold hover:text-[#8D77AB]
+                   hover:border-[#8D77AB] transition-colors">
+            x
+        </button>
+
+        <h2 class="mb-2 text-4xl font-bold font-serif">about us</h2>
+        <p class="mb-6 text-[15px] opacity-90">
+            Morrow is a shopping catalogue created as an assignment for COMP 3612. 
+        </p>
+
+        <!-- light green container for the assignment info and implementation info -->
+        <div class="mb-6 grid grid-cols-1 gap-6 bg-[#E1EACD] p-6 md:grid-cols-2">
+            <div>
+                <h3 class="mb-3 text-xs font-bold uppercase tracking-wider text-[#8D77AB]">
+                    The Assignment
+                </h3>
+                <ul class="text-[14px]">
+                    <li>Single-page App in JavaScript</li>
+                    <li>COMP 3612 - Fall 2026</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="mb-3 text-xs font-bold uppercase tracking-wider text-[#8D77AB]">
+                    Implementation
+                </h3>
+                <ul class="text-[14px]">
+                    <li>HTML - CSS - JavaScript - Tailwind CLI</li>
+                    <li>DummyJSON - localStorage</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="mb-1 text-[15px]">Created by: Sage Odesanya and Anna Running Rabbit</p>
+        <p class="mb-8 text-[15px]">
+            <a href="https://github.com/arrabbit/simple-storefront.github.io"
+                class="text-[#8D77AB] hover:underline">
+                GitHub repository: https://github.com/arrabbit/simple-storefront.github.io
+            </a>
+        </p>
+
+        <!-- Keep shopping button -->
+        <button 
+            type="button" 
+            id="keep-shopping-btn" 
+            class="block mx-auto rounded bg-[#8D77AB] px-4 py-3 text-center
+                   text-[15px] font-medium text-white hover:opacity-90
+                   transition-opacity">
+            Keep shopping
+        </button>
+    </dialog>
+
     <!-- still need to test how this will look, may need to edit size/colour etc. -->
-    <aside id="toast" role="status" class="fixed hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded bg-[#F9F6E6] px-5 py-3 text-center text-[#283D32]"></aside>
+    <aside 
+        id="toast" 
+        role="status" 
+        class="fixed hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+               rounded bg-[#F9F6E6] px-5 py-3 text-center text-[#283D32]">
+    </aside>
     <script type="module" src="js/main.js"></script>
 </body>
 
