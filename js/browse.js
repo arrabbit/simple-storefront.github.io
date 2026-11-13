@@ -9,7 +9,7 @@
 import { getProducts } from "./data.js";
 import { getCategories, formatCategory } from "./category.js";
 import { createProductCard } from "./productCard.js";
-import { formatPrice } from "./ui.js"; // Anna Running Rabbit
+import { formatPrice } from "./helpers.js"; // Anna Running Rabbit
 import { clear, el } from "./dom.js";
 let filters = newFilters();
 let sortBy = "name";

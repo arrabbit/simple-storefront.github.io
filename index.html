@@ -1,11 +1,12 @@
+<!DOCTYPE html>
+
 <!-- 
 Summary: 
 
 File: index.html
-Authors: Sage and Anna Running Rabbit
+Authors: Sage Odesanya and Anna Running Rabbit
 -->
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -38,7 +39,7 @@ Authors: Sage and Anna Running Rabbit
                 </span>
             </a>
 
-            <!--centered nav menu 'home' 'browse' 'categeory' 'about'-->
+            <!--centered nav menu 'home' 'browse' 'category' 'about'-->
             <ul class="flex flex-wrap items-center gap-8 text-[15px] font-medium">
                 <li class="bg-[#E1EACD] rounded px-2 py-1"><a href="#" data-view="home" class="hover:text-[#8D77AB]">Home</a></li> <!--currently hardcoded but will need to make box only active when that view is active-->
                 <li><a href="#" data-view="browse" class="hover:text-[#8D77AB]">Browse</a></li>
@@ -52,6 +53,11 @@ Authors: Sage and Anna Running Rabbit
             </a>
         </nav>
     </header>
+
+    <main class="flex-1 px-8 py-6">
+        <!-- lots still to do here -->
+    </main>
+
 
     <footer class="bg-[#283D32] px-8 py-8 text-[#F9F6E6]"> <!--dark green footer background with cream text-->
         <!--container-->
@@ -95,7 +101,7 @@ Authors: Sage and Anna Running Rabbit
     </footer>
 
     <!-- still need to test how this will look, may need to edit size/colour etc. -->
-    <aside id="toast" role="status" class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded bg-[#F9F6E6] px-5 py-3 text-center text-[#283D32]"></aside>
+    <aside id="toast" role="status" class="fixed hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded bg-[#F9F6E6] px-5 py-3 text-center text-[#283D32]"></aside>
     <script type="module" src="js/main.js"></script>
 </body>
 
