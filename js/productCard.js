@@ -1,50 +1,46 @@
-// async function loadProducts(url, storageKey) {
-//   // used https://www.w3schools.com/jsref/prop_win_localstorage.asp for help with this section 
-  
-//   // checking for cached data
-//   const cachedData = localStorage.getItem(storageKey);
-  
-//   if (cachedData) {
-//     // parse and return data if it exists
-//     return JSON.parse(cachedData);
-//   }
-  
-//   try {
-//     // fetch from server/path otherwise
-
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//       throw new Error(`Looks like we encountered an error, this is what it was: ${response.status}`);
-//     }
-    
-//     const data = await response.json();
-    
-//     // save as a string in localStorage
-//     localStorage.setItem(storageKey, JSON.stringify(data));
-//     https://blog.logrocket.com/localstorage-javascript-complete-guide/#when-use-localstorage
-    
-//     return data;
-//   } catch (error) {
-//     console.error('Failed to load products:', error);
-//     return null;
-//   }
-// }
-// this code is commented out for now. I am not sure how to implemen the functionality of having it grab 
-// things from package-lock.json and store it in local storage.
-const userArray = ["Obaseki",25]
-localStorage.setItem('user', JSON.stringify(userArray));
-localStorage.getItem('name');
-JSON.parse(localStorage.getItem('user'));
-const userData = JSON.parse(localStorage.getItem('user'));
-console.log(userData);
-
-// const jsonURL = './package-lock.json';
-// const storageKey = 'products';
-
-// loadProducts(jsonURL, storageKey)
-//   .then(data => {
-//     console.log("Data loaded successfully:", data);
-//   })
-//   .catch(error => {
-//     console.error("Error loading JSON:", error);
-//   });
+/*
+ * Summary: Product card used on Home, Browse, and Related Products. 
+ * Clicking the card will open the product page, while the button adds to the cart. 
+ * Both are handled by the single click listener in main.js with data- attributes.  
+ * 
+ * File: productCard.js
+ * 
+ * Author: Sage Odesanya
+*/
+import { el } from "./dom.js";
+import { formatPrice } from "./helpers.js"; // Anna Running Rabbit
+/*Build the card for one product, imported from products.json.*/
+export function createProductCard(product) {
+  const card = el("article", "flex cursor-pointer flex-col overflow-hidden rounded-lg border bg-white shadow-sm transition hover:shadow-md");
+  card.dataset.action = "open-product";
+  card.dataset.id = product.id;
+  card.appendChild(createThumbnail(product));
+  card.appendChild(createBody(product));
+  return card;
+}
+/*Builds the thumbnail image using product, and returning an HTMLImageElement.*/
+//credit: https://www.w3.org/2003/01/dom2-javadoc/org/w3c/dom/html2/HTMLImageElement.html
+function createThumbnail(product) {
+  const img = el("img", "h-44 w-full object-cover");
+  img.src = product.thumbnail;
+  img.alt = product.title;
+  img.loading = "lazy"; //dont load the image until the user scrolls towards it
+  return img;
+}
+/*Build the text area: the title, the price, and the Add to Cart Button.*/
+function createBody(product) {
+  const body = el("div", "flex flex-1 flex-col gap-2 p-3");
+  body.appendChild(el("h3", "line-clamp-2 font-semibold", product.title));
+  body.appendChild(el("p", "text-gray-700", formatPrice(product.price)));
+  body.appendChild(createAddButton(product));
+  return body;
+}
+/*Builds the Add to Cart button.*/
+//Credit: https://www.w3schools.com/jsref/dom_obj_pushbutton.asp
+function createAddButton(product) {
+  const button = el("button", "mt-auto rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-700", "Add to Cart");
+  button.type = "button";
+  button.dataset.action = "add-to-cart";
+  button.dataset.id = product.id;
+  return button;
+}

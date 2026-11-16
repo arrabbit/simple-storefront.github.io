@@ -5,7 +5,7 @@
  * File: data.js
  * Author: Sage Odesanya
 */
-import productsData from "./products.json" with { type: "json" };
+import productsData from "./data-pretty.json" with { type: "json" };
 
 const STORAGE_KEY = "products";
 let products = [];
