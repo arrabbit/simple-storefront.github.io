@@ -9,7 +9,8 @@ import { showView } from "./router.js";
 import { initHome } from "./home.js";
 import { initCategory } from "./category.js";
 import { initBrowse, browseActions } from "./browse.js";
-import { initAbout } from "./about.js";
+import { updateNavHighlight } from "./helpers.js"; // Anna Running Rabbit
+import { initAbout } from "./about.js"; // Anna Running Rabbit
 import { addToCart } from "./cart.js"; // Anna Running Rabbit
  
 
@@ -36,6 +37,10 @@ function handleClick(event) {
   event.preventDefault();
   handler(target);
 }
+/*listen for any view changes and update the navigation highlight*/
+document.addEventListener("viewchange", (event) => {
+  updateNavHighlight(event.detail.name);
+});
 /*show a load error if the page content fails to load.*/
 function showAppError(message) {
   const box = document.getElementById("app-error");
