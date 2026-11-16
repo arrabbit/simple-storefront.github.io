@@ -9,6 +9,7 @@ import { showView } from "./router.js";
 import { initHome } from "./home.js";
 import { initCategory } from "./category.js";
 import { initBrowse, browseActions } from "./browse.js";
+import { initAbout } from "./about.js";
 import { addToCart } from "./cart.js"; // Anna Running Rabbit
  
 
@@ -53,6 +54,7 @@ async function start() {
   initHome();
   initCategory();
   initBrowse();
+  initAbout();
   document.addEventListener("click", handleClick);
   showView("home");
 }
