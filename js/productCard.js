@@ -11,7 +11,7 @@ import { el } from "./dom.js";
 import { formatPrice } from "./helpers.js"; // Anna Running Rabbit
 /*Build the card for one product, imported from products.json.*/
 export function createProductCard(product) {
-  const card = el("article", "flex cursor-pointer flex-col overflow-hidden rounded-lg border bg-white shadow-sm transition hover:shadow-md");
+  const card = el("article", "flex cursor-pointer flex-col overflow-hidden rounded-lg border border-[#BAD8B6] bg-[#F9F6E6] shadow-sm transition hover:shadow-md");
   card.dataset.action = "open-product";
   card.dataset.id = product.id;
   card.appendChild(createThumbnail(product));
@@ -38,7 +38,7 @@ function createBody(product) {
 /*Builds the Add to Cart button.*/
 //Credit: https://www.w3schools.com/jsref/dom_obj_pushbutton.asp
 function createAddButton(product) {
-  const button = el("button", "mt-auto rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-700", "Add to Cart");
+  const button = el("button", "mt-auto rounded bg-[#283D32] px-3 py-2 text-[#F9F6E6] hover:bg-[#8D77AB]", "Add to Cart");
   button.type = "button";
   button.dataset.action = "add-to-cart";
   button.dataset.id = product.id;

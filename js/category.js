@@ -20,7 +20,7 @@ export function formatCategory(slug) {
 /*uses first product's thumbnail to build the tile for one category.*/
 function createTile(category) {
   const sample = getProducts().find((product) => product.category === category);
-  const tile = el("button", "overflow-hidden rounded-lg border bg-white text-left shadow-sm transition hover:shadow-md");
+  const tile = el("button", "overflow-hidden rounded-lg border border-[#BAD8B6] bg-[#F9F6E6] text-left shadow-sm transition hover:shadow-md");
   tile.type = "button";
   tile.dataset.action = "browse-category";
   tile.dataset.category = category;

@@ -91,7 +91,7 @@ function renderCategoryOptions() {
 /*build one category checkbox & its label.*/
 function createCategoryOption(category) {
   const label = el("label", "flex cursor-pointer items-center gap-2");//tailwind css for label
-  const box = el("input", "h-4 w-4");//tailwind css for input
+  const box = el("input", "h-4 w-4 accent-[#283D32] ");//tailwind css for input
   box.type = "checkbox"; 
   box.value = category;
   label.appendChild(box);
@@ -115,8 +115,8 @@ function syncCategoryOption(label) {
 }
 /*build removable chip for an active filter.*/
 function createChip(item) {
-  const chip = el("span", "flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800", item.label);
-  const remove = el("button", "font-bold hover:text-red-600", "✕");
+  const chip = el("span", "flex items-center gap-2 rounded-full bg-[#E1EACD] px-3 py-1 text-sm text-[#283D32]", item.label);
+  const remove = el("button", "font-bold hover:text-[#8D77AB]", "✕");
   remove.type = "button";
   remove.dataset.action = "remove-filter";
   remove.dataset.filter = item.type;
@@ -127,7 +127,7 @@ function createChip(item) {
 }
 /*clear all for the buttons. */
 function createClearAll() {
-  const button = el("button", "text-sm text-blue-700 underline", "Clear All");
+  const button = el("button", "text-sm text-[#8D77AB] underline", "Clear All");
   button.type = "button";
   button.dataset.action = "clear-filters";
   return button;
