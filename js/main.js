@@ -1,9 +1,12 @@
-/* Summary: App entry point. Loads the data, sets up each view, and will also run 
-* the one click listener for the page. buttons and links carry data-action 
-* (and data-id / data-view / ...) attributes.
-* File name: main.js
-*  Owner: Sage Odesanya
-*/
+/** 
+ * Summary: App entry point. Loads the data, sets up each view, and will also run 
+ * the one click listener for the page. buttons and links carry data-action 
+ * (and data-id / data-view / ...) attributes.
+ * 
+ * File name: main.js
+ * Owner: Sage Odesanya and Anna Running Rabbit
+ */
+
 import { loadProducts, getProductById } from "./data.js";
 import { showView } from "./router.js";
 import { initHome } from "./home.js";
@@ -12,7 +15,7 @@ import { initBrowse, browseActions } from "./browse.js";
 import { updateNavHighlight } from "./helpers.js"; // Anna Running Rabbit
 import { initAbout } from "./about.js"; // Anna Running Rabbit
 import { addToCart } from "./cart.js"; // Anna Running Rabbit
- 
+import { initProduct, productActions } from "./product.js"; 
 
 /*look up the clicked card's product and addToCart. */
 function handleAddToCart(button) {
@@ -26,6 +29,7 @@ const actions = {
   "browse-category": (el) => showView("browse", { category: el.dataset.category }),
   "add-to-cart": handleAddToCart,
   ...browseActions,
+  ...productActions,
   //https://www.w3schools.com/jsref/jsref_oper_spread.asp
   //spreads all the iterables into individual elements. 
 };
@@ -60,6 +64,7 @@ async function start() {
   initCategory();
   initBrowse();
   initAbout();
+  initProduct();
   document.addEventListener("click", handleClick);
   showView("home");
 }
