@@ -8,6 +8,22 @@
  * formatDate() uses concepts from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
 */
 
+/** Highlights the header navigation label based on the current active view */
+function updateNavHighlight(activeViewName) {
+    const navLinks = document.querySelectorAll("#nav-menu a[data-action='show-view']");
+
+    for (let link of navLinks) {
+        const li = link.parentNode;
+
+        // Adds green highlight box to the active view and removes it from all the non-active views 
+        if (link.dataset.view === activeViewName) {
+            li.classList.add("bg-[#E1EACD]", "rounded", "px-2", "py-1");
+        } else {
+            li.classList.remove("bg-[#E1EACD]", "rounded", "px-2", "py-1");
+        }
+    }
+}
+
 /** Creates the string of stars for a given product rating (product view).*/
 function createStars(rating) {
     const starRating = Math.round(rating); // takes the given rating value and rounds to the nearest whole number
@@ -56,4 +72,4 @@ function showToast(message) {
     }, TOAST_DELAY);                   // the delay timer value
 }
 
-export { createStars, formatDate, formatPrice, updateCartCount, showToast };
+export { updateNavHighlight, createStars, formatDate, formatPrice, updateCartCount, showToast };
