@@ -25,7 +25,7 @@ class Cart {
         this.#onChange(this.getCount());
     }
 
-    getitems() {
+    getItems() {
         return [...this.#items]; // returns a copy so the cart can only be changed with the Cart methods
     }
 

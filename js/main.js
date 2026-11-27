@@ -15,7 +15,8 @@ import { initBrowse, browseActions } from "./browse.js";
 import { updateNavHighlight } from "./helpers.js"; // Anna Running Rabbit
 import { initAbout } from "./about.js"; // Anna Running Rabbit
 import { addToCart } from "./cart.js"; // Anna Running Rabbit
-import { initProduct, productActions } from "./product.js"; 
+import { initProduct, productActions } from "./product.js";
+import { initCartView, cartActions } from "./cartView.js";
 
 /*look up the clicked card's product and addToCart. */
 function handleAddToCart(button) {
@@ -30,6 +31,7 @@ const actions = {
   "add-to-cart": handleAddToCart,
   ...browseActions,
   ...productActions,
+  ...cartActions,
   //https://www.w3schools.com/jsref/jsref_oper_spread.asp
   //spreads all the iterables into individual elements. 
 };
@@ -65,6 +67,7 @@ async function start() {
   initBrowse();
   initAbout();
   initProduct();
+  initCartView();
   document.addEventListener("click", handleClick);
   showView("home");
 }
