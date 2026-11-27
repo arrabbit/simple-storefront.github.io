@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- 
-Summary: The single page for the haven storefront  which holds the shared
+Summary: The single page for the haven storefront which holds the shared
          header and footer, a section for each view, the About Us popup, and
          the toast message. 
 
@@ -82,7 +82,7 @@ Authors: Sage Odesanya and Anna Running Rabbit
             <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center text-white">
               <h1 class="text-3xl font-bold md:text-5xl">Find something you'll love</h1>
               <button type="button" data-action="show-view" data-view="browse"
-                class="rounded bg-white px-6 py-3 font-semibold text-[#634C80] hover:bg-blue-50">Browse products</button>
+                class="rounded bg-white px-6 py-3 font-semibold text-[#634C80] hover:bg-[#E1EACD]">Browse products</button>
             </div>
           </div>
           <h2 class="mb-4 mt-8 text-2xl font-semibold">Featured products</h2>
@@ -160,7 +160,7 @@ Authors: Sage Odesanya and Anna Running Rabbit
             <!-- Results after using Browse -->
             <div class="flex-1">
               <div class="mb-4 flex flex-wrap items-center justify-between gap-2 ">
-                <p id="result-count" class="text-sm text-gray-600"></p>
+                <p id="result-count" class="text-sm text-[#283D32] opacity-70"></p>
                 <div class="flex items-center gap-2">
                   <label for="sort-by" class="text-sm">Sort by</label>
                   <select id="sort-by" class="rounded border p-2 bg-[#F9F6E6]">
@@ -172,7 +172,7 @@ Authors: Sage Odesanya and Anna Running Rabbit
               </div>
               <div id="active-filters" class="mb-4 flex flex-wrap items-center gap-2"></div>
               <div id="browse-grid" class="grid grid-cols-2 gap-4 lg:grid-cols-3"></div>
-              <p id="no-matches" class="hidden rounded border bg-white p-6 text-center text-gray-600">
+              <p id="no-matches" class="hidden rounded border bg-white p-6 text-center text-[#283D32] opacity-70">
                 No products match your filters. Try removing one or click Clear All.
               </p>
             </div>

@@ -44,7 +44,7 @@ async function fetchProducts() {
 }
 
 /*uses the saved copy if there is one, otherwise it will fetch the products
-* DummyJSON and save them to local storage.*/
+* from DummyJSON and save them to local storage.*/
 export async function loadProducts() {
   const saved = readSaved();
   products = saved ?? (await fetchProducts()); //products are already saved if they exist in local storage
