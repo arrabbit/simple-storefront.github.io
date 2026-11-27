@@ -59,11 +59,12 @@ Authors: Sage Odesanya and Anna Running Rabbit
             </ul>
 
             <!--cart-->
-            <a href="#" 
+            <a href="#"
+                data-action="show-view" 
                 data-view="cart"
                 class="bg-[#E1EACD] rounded border border-[#283D32] px-5 py-2
                        text-[15px] font-medium">
-                Cart <span id="cart-count">(0)</span> <!--currently hardcoded but will need to update as items are added-->
+                Cart <span id="cart-count">(0)</span>
             </a>
         </nav>
     </header>
@@ -181,7 +182,64 @@ Authors: Sage Odesanya and Anna Running Rabbit
         </section>
 
         <!-- for Anna: Cart-->
-        <section id="view-cart" class="view hidden">
+        <section id="view-cart" class="view hidden px-8 py-6 text-[#283D32]">
+          <h2 class = "mb-8 font-serif text-4xl font-bold">Shopping Cart</h2>
+
+          <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            <!-- cart items or the empty cart message -->
+            <div id="cart-items-container"
+                 class="h-fit rounded bg-[#F9F6E6] px-6 lg:col-span-2">
+            </div>
+
+            <!-- shipping options, summary, and checkout-->
+            <div class="h-fit rounded bg-[#F9F6E6] p-8">
+              <h3 class="mb-4 font-serif text-2xl font-bold">Shipping</h3>
+              <div class="mb-6 flex flex-col gap-3">
+                <!-- shipping drop-down selector -->
+                <select id="shipping-type"
+                        class="rounded border border-[#283D32] bg-white p-2">
+                  <option value="standard">Standard</option>
+                  <option value="express">Express</option>
+                  <option value="priority">Priority</option>
+                </select>
+
+                <!-- destination drop-down selector -->
+                <select id="shipping-dest"
+                        class="rounded border border-[#283D32] bg-white p-2">
+                  <option value="canada">Canada</option>
+                  <option value="us">United States</option>
+                  <option value="international">International</option>
+                </select>
+              </div>
+
+              <h3 class="mb-4 font-serif text-2xl font-bold">Summary</h3>
+              <div class="space-y-3 pb-4 text-sm">
+                <div class="flex justify-between">
+                  <span>Merchandise</span>
+                  <span id="summary-merch">$0.00</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Shipping</span>
+                  <span id="summary-ship">$0.00</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Tax</span>
+                  <span id="summary-tax">$0.00</span>
+                </div>
+              </div>
+              <div class="mt-4 flex justify-between text-lg font-bold">
+                <span>Total</span>
+                <span id="summary-total">$0.00</span>
+              </div>
+
+              <button type="button" id="checkout-btn" data-action="checkout"
+                      class="mt-6 w-full rounded bg-[#8D77AB] px-4 py-3
+                             text-[15px] font-medium text-white
+                             hover:opacity-90">
+                Checkout
+              </button>
+            </div>
+          </div>
         </section>
     </main>
 
