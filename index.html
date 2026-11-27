@@ -32,7 +32,7 @@ Authors: Sage Odesanya and Anna Running Rabbit
     <header class="bg-[#F9F6E6] text-[#283D32]"> <!--cream header background with dark green text-->
         <nav class="flex flex-wrap items-center justify-between gap-4 px-8 py-5">
             <!--logo that displays home view when clicked-->
-            <a href="#" data-action="show-view"data-view="home" class="flex items-center">
+            <a href="#" data-action="show-view" data-view="home" class="flex items-center">
                 <!--sets logo font as -- and color dark green-->
                 <span class="text-3xl font-bold font-serif tracking-tight">
                     haven
@@ -40,19 +40,19 @@ Authors: Sage Odesanya and Anna Running Rabbit
             </a>
 
             <!--centered nav menu 'home' 'browse' 'category' 'about'-->
-            <ul class="flex flex-wrap items-center gap-8 text-[15px] font-medium">
-                <li class="bg-[#E1EACD] rounded px-2 py-1">
+            <ul id="nav-menu" class="flex flex-wrap items-center gap-8 text-[15px] font-medium">
+                <li>
                     <!--currently hardcoded but will need to make box only active when that view is active-->
-                    <a href="#" data-view="home" class="hover:text-[#8D77AB]">Home</a>
+                    <a href="#" data-action="show-view" data-view="home" class="hover:text-[#8D77AB]">Home</a>
                 </li>
                 <li>
-                    <a href="#" data-view="browse" class="hover:text-[#8D77AB]">Browse</a>
+                    <a href="#" data-action="show-view" data-view="browse" class="hover:text-[#8D77AB]">Browse</a>
                 </li>
                 <li>
-                    <a href="#" data-view="category" class="hover:text-[#8D77AB]">Category</a>
+                    <a href="#" data-action="show-view" data-view="category" class="hover:text-[#8D77AB]">Category</a>
                 </li>
                 <li>
-                    <a href="#" data-view="about" class="hover:text-[#8D77AB]">About</a>
+                    <a href="#" data-action="show-view" data-view="about" class="hover:text-[#8D77AB]">About</a>
                 </li>
             </ul>
 
@@ -181,10 +181,6 @@ Authors: Sage Odesanya and Anna Running Rabbit
         <!-- for Anna: Cart-->
         <section id="view-cart" class="view hidden">
         </section>
-
-        <!-- for Anna: About-->
-        <section id="view-about" class="view hidden">
-        </section>
     </main>
 
     <!--dark green footer background with cream text-->
@@ -252,7 +248,7 @@ Authors: Sage Odesanya and Anna Running Rabbit
 
         <h2 class="mb-2 text-4xl font-bold font-serif">about us</h2>
         <p class="mb-6 text-[15px] opacity-90">
-            Morrow is a shopping catalogue created as an assignment for COMP 3612. 
+            haven is a shopping catalogue created as an assignment for COMP 3612. 
         </p>
 
         <!-- light green container for the assignment info and implementation info -->
