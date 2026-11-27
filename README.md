@@ -1,6 +1,9 @@
 # simple-storefront
 A single-page store app (one index.html) with 5 views: Home, Category, Browse, Single Product, and Cart.
 
+## Live Site
+https://arrabbit.github.io/simple-storefront.github.io/
+
 ## Project Dependencies
 - Tailwind CSS (v3)
 - Node.js

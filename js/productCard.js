@@ -9,7 +9,7 @@
 */
 import { el } from "./dom.js";
 import { formatPrice } from "./helpers.js"; // Anna Running Rabbit
-/*Build the card for one product, imported from products.json.*/
+/*Build the card for one product*/
 export function createProductCard(product) {
   const card = el("article", "flex cursor-pointer flex-col overflow-hidden rounded-lg border border-[#BAD8B6] bg-[#F9F6E6] shadow-sm transition hover:shadow-md");
   card.dataset.action = "open-product";
