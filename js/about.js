@@ -1,5 +1,6 @@
 /** 
- * Summary: 
+ * Summary: Opens the About Us popup from the header link, and closes it with
+ *          the "x" button or the "Keep Shopping" button.
  * 
  * File: about.js
  * Author: Anna Running Rabbit
