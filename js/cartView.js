@@ -69,7 +69,7 @@ function createCartRow(item) {
 
     // one row holding every part
     const row = el("div",
-                   "flex items-center gap-4 border-b border-[#BAD8B6] py-4");
+                   "flex items-center gap-4 border-b border-[#BAD8B6] py-4 last:border-b-0");
     row.appendChild(img);
     row.appendChild(info);
     row.appendChild(el("p", "w-12 text-center", item.quantity));
