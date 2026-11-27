@@ -5,7 +5,8 @@
  * File: data.js
  * Author: Sage Odesanya
 */
-import productsData from "./data-pretty.json" with { type: "json" };
+
+const API_URL = "https://dummyjson.com/products?limit=100";
 
 const STORAGE_KEY = "products";
 let products = [];
@@ -29,21 +30,30 @@ function save(list) {
     // if the storage is full or blocked, the app will still work, but it will not cache. 
   }
 }
+/*fetch product list form dummyjson. returns promise from the .products firl, and throws an 
+* error if the network fails, server gives an error, or the data is not a list. 
+ */
+async function fetchProducts() {
+  const response = await fetch(API_URL);
+  if (!response.ok) throw new Error(`Your request failed! This is why: (${response.status})`);
+  const data = await response.json();
+  if (!Array.isArray(data.products) || data.products.length === 0) {
+    throw new Error("The response had no products... are you sure you're looking in the right place? ");
+  }
+  return data.products;
+}
 
 /*uses the saved copy if there is one, othewise it will use the json file.*/
-
 export async function loadProducts() {
   const saved = readSaved();
-  products = saved ?? productsData.products; //products are already saved if they exist in productsData.products
+  products = saved ?? (await fetchProducts()); //products are already saved if they exist in local storage
   if (!saved) save(products);// otherwise save it to products
   return products;
 }
-
 /*gets loaded products and returns an array of loaded products.*/
 export function getProducts() {
   return products;
 }
-
 /*find a product using its ID. returns the product, or undefined if it is not found.*/
 export function getProductById(id) {
   return products.find((product) => product.id === id);
